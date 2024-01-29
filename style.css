@@ -1,0 +1,67 @@
+body {
+	font-family: 'Roboto Mono', monospace;
+	background-color: #1a1b26;
+	color: #c0caf5;
+	margin:0;
+	image-rendering: pixelated;
+}
+
+.pfp {
+	border-radius: 100%;
+	width:50px
+}
+
+.projects > div {
+	padding:10px;
+	border-radius: 2px;
+	border: 2px solid #9ece6a;
+	background-color: #0008;
+	width: calc(25vw - 24px - 4px);
+	display: inline-block;
+	height:calc(12.5vw - 24px - 4px);
+	margin:2px;
+	overflow:hidden;
+	position: relative;
+}
+.pfpcard > *,
+div.project > * {
+	margin:auto;
+	white-space: pre;
+}
+.pfpcard > div > h3,
+div.project > div > h3 {
+	margin:0 !important;
+	line-height: 50px;
+	margin-left: 10px !important;
+}
+.pfpcard > div,
+div.project > div {
+	display:inline-flex
+}
+
+.pfpcard > div.buttons > a,
+div.project > div.buttons > a {
+	position: absolute;
+	bottom:10px;
+	left:10px;
+	padding:10px;
+	border-radius: 2px;
+	border: 2px solid #9ece6a;
+	background-color: #0000;
+	backdrop-filter: blur(100px);
+	color:#c0caf5;
+	text-decoration: none;
+}
+
+.bar {
+	position: fixed;
+	top:0;
+	left:0;
+	width:calc(100vw - 20px);
+	height: 44px;
+	background: linear-gradient(0deg,#1a1b2680, #1a1b26ff);
+	backdrop-filter: blur(100px);
+	padding:10px;
+	z-index: 10;
+	border-bottom: 2px solid #9ece6a;
+}
