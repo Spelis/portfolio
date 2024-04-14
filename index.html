@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <script src="main.js"></script>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"> 
-  <title>Spelis's Projects!</title>
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>spelis/home</title>
+        <script src="main.js"></script>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div id="bar"></div>
 
-<body style="padding-top:66px">
-  <div class="bar">
-    <h3>Spelis's Projects</h3>
-  </div>
-  <div class="projects" style="height:200vh;"><div class="pfpcard"><div><img src="https://avatars.githubusercontent.com/u/152774420?v=4" alt="" class="pfp"><h3>Spelis</h3></div><p>13 year old, self taught Python developer.</p></div></div>
-<script>MKP('.projects',['Spelis']);
-        NonGitHub('PeriodicMonkey','periodicmonkey','Periodic Table inspired by MonkeyType','/PeriodicMonkey/','.projects')
-        NonGitHub('Youtube','youtube','My YouTube Channel','https://youtube.com/@Spelis','.projects')</script>
-      </body>
+        <div class="about">
+            <p>
+                Hello there! I'm
+                <span id="veryspecial">Spelis</span>.<br /><br />
+                I am
+                <span id="ageDisplay" class="highlight" title="2010/05/11"></span>                <span class="highlight">years old</span> and i live in
+            <span class="highlight">Northern Sweden</span> <br /><br />
+                I enjoy <span class="highlight">programming</span> mostly random stuff.<br />
+                You can see my work <a href="/tech">here</a>.<br /><br />
+                <script>
+                    function updateAge() {
+                        const specificDate = new Date("2010-05-11T22:50:00");
+                        const currentDate = new Date();
+                        const age = (
+                            (currentDate - specificDate) /
+                            (1000 * 60 * 60 * 24 * 365.25)
+                        ).toFixed(10);
+                        document.getElementById("ageDisplay").textContent = age;
+                    }
+                    updateAge();
+                    setInterval(updateAge, 10);
+                    </script>
+                I also like <span class="highlight">snakes</span> and you can find
+                the ones i have <a href="/snakes/">here</a> <br /><br />
+
+                If you want to <span class="highlight">contact me</span> you can do so on <a href="https://discord.com/users/710856373675491381">discord</a>
+            </p>
+        </div>
+    </body>
 </html>
