@@ -54,7 +54,6 @@ a {
     justify-content: center;
     flex-wrap: wrap;
     gap: 50px;
-    max-width: 1000px;
     padding-bottom: 100px;
     margin:auto auto;
 }
@@ -63,7 +62,7 @@ a {
     color:var(--green)
 }
 
-#veryspecial {
+.veryspecial {
     background-clip: text;
     color: transparent;
     background: -webkit-linear-gradient(right, var(--pink), var(--mauve), var(--red), var(--maroon), var(--peach), var(--yellow), var(--green), var(--teal), var(--sky), var(--sapphire), var(--blue), var(--lavender));
@@ -86,7 +85,7 @@ a {
     border-radius: 10px;
     margin:1em;
     display:block;
-    width: 300px;
+    width: 400px;
     height:150px;
     padding:1em;
     overflow: hidden;
@@ -159,26 +158,4 @@ a {
     align-items: center;
     padding:10px 20px;
     max-width: 1000px;
-}
-
-.aboutsnek {
-    display: flex;
-    flex-flow: wrap;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    max-width: 1000px;
-}
-
-.snake {
-    width:100px;
-    height:100px;
-    object-fit: cover;
-    border-radius: 100px;
-    border:2px solid #0000;
-    transition:all .3s ease;
-}
-.snake:hover {
-    border-color: var(--blue);
-    transform:scale(150%)
 }

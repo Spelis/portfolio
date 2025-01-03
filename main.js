@@ -33,7 +33,7 @@ async function MKP(parent, exclude) {
     repos.forEach((repo) => {
         const color = window
             .getComputedStyle(document.body)
-            .getPropertyValue("--" + colors[i])
+            .getPropertyValue("--" + colors[i%colors.length])
             .trim();
         const project = document.createElement("div");
         project.style.opacity = 0
@@ -51,7 +51,9 @@ async function MKP(parent, exclude) {
         text.className = "text";
         const name = document.createElement("h3");
         name.textContent = repo.name;
+        name.innerHTML += ` <span style='font-size:15px;'>(${repo.language})</span>`;
         name.style.color = color;
+        name.style.textWrapMode = "nowrap";
         const desc = document.createElement("div");
         desc.textContent = repo.description;
         text.appendChild(name);
@@ -116,23 +118,14 @@ window.addEventListener('DOMContentLoaded',function(){
     home.className = 'sel'
   }
   const tech = document.createElement('a')
-  tech.textContent = 'tech'
-  tech.href = '/tech'
-  if (dir === '/tech/') {
-    console.log('hey')
-    tech.className = 'sel'
-  }
-  const snakes = document.createElement('a')
-  snakes.textContent = 'snakes'
-  snakes.href = '/snakes'
-  if (dir === '/snakes/') {
-    console.log('hey')
-    snakes.className = 'sel'
-
-  }
+  tech.textContent = 'github'
+  tech.href = 'https://github.com/spelis'
+  const ytbtn = document.createElement('a')
+  ytbtn.textContent = 'youtube'
+  ytbtn.href = 'https://www.youtube.com/@Spelis'
   nav.appendChild(home)
   nav.appendChild(tech)
-  nav.appendChild(snakes)
+  nav.appendChild(ytbtn)
   bar.appendChild(nav)
 
 })
