@@ -92,7 +92,6 @@ a {
     background-color: #0004;
     transition:transform .3s ease;
     transform: scale(90%);
-    filter: blur(2px);
     cursor: pointer;
 }
 
