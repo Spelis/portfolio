@@ -1,79 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>spelis/home</title>
-		<script src="main.js"></script>
-		<link rel="stylesheet" href="style.css" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap"
-			rel="stylesheet"
-		/>
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7562690585426691" crossorigin="anonymous"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PCBBH893X9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spelis/home</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7562690585426691"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-PCBBH893X9"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-PCBBH893X9');
-</script>
+      gtag("config", "G-PCBBH893X9");
+    </script>
+  </head>
+  <body>
+    <div id="bar"></div>
 
-	</head>
-	<body>
-		<div id="bar"></div>
+    <div class="about">
+      <p style="font-size: 20px">
+        Hello there! I'm
+        <span class="veryspecial">Spelis</span>.<br /><br />
+        I am
+        <span id="ageDisplay" class="veryspecial" title="2010/05/11"></span>
+        <span class="highlight">years old</span> and i live in
+        <span class="veryspecial">Northern Sweden</span> <br /><br />
+        I enjoy <span class="veryspecial">programming</span> mostly random
+        stuff.<br />
+        <script>
+          function updateAge() {
+            const specificDate = new Date("2010-05-11T22:50:00");
+            const currentDate = new Date();
+            const age = (
+              (currentDate - specificDate) /
+              (1000 * 60 * 60 * 24 * 365.25)
+            ).toFixed(15);
+            document.getElementById("ageDisplay").textContent = age;
+          }
+          updateAge();
+          setInterval(updateAge, 10);
+        </script>
+        I also like <span class="veryspecial">snakes</span> and you can find
+        some pictures of mine
+        <a
+          href="https://photos.google.com/share/AF1QipMp7DhMSanHd-ZjQ76Pb9VyRobfxO1jnor_OUiP0TtzwEVuTfw-le_VQYuF4llFVw?key=Y3hXNUpTZ3B5TnNDcHVwOXhDQ3dsU3R5d0oyM1lR"
+          >here</a
+        >
+        <br /><br />
 
-		<div class="about">
-			<p style="font-size:20px">
-				Hello there! I'm
-				<span class="veryspecial">Spelis</span>.<br /><br />
-				I am
-				<span
-					id="ageDisplay"
-					class="highlight"
-					title="2010/05/11"
-				></span>
-				<span class="highlight">years old</span> and i live in
-				<span class="highlight">Northern Sweden</span> <br /><br />
-				I enjoy <span class="veryspecial">programming</span> mostly
-				random stuff.<br />
-				<script>
-					function updateAge() {
-						const specificDate = new Date("2010-05-11T22:50:00");
-						const currentDate = new Date();
-						const age = (
-							(currentDate - specificDate) /
-							(1000 * 60 * 60 * 24 * 365.25)
-						).toFixed(15);
-						document.getElementById("ageDisplay").textContent = age;
-					}
-					updateAge();
-					setInterval(updateAge, 10);
-				</script>
-				I also like <span class="highlight">snakes</span> and you can
-				find some pictures of mine
-				<a
-					href="https://photos.google.com/share/AF1QipMp7DhMSanHd-ZjQ76Pb9VyRobfxO1jnor_OUiP0TtzwEVuTfw-le_VQYuF4llFVw?key=Y3hXNUpTZ3B5TnNDcHVwOXhDQ3dsU3R5d0oyM1lR"
-					>here</a
-				>
-				<br /><br />
+        If you want to <span class="highlight">contact me</span> you can do so
+        on <a href="https://discord.com/users/710856373675491381">discord</a
+        ><br /><br />
 
-				If you want to <span class="highlight">contact me</span> you can
-				do so on
-				<a href="https://discord.com/users/710856373675491381"
-					>discord</a
-				><br /><br />
-
-				Below you can find some stuff i've made in the past.
-			</p>
-		</div>
-		<div class="projects"></div>
-		<script>
-			MKP(".projects", ["Spelis"]);
-		</script>
-	</body>
+        Below you can find some stuff i've made in the past.
+      </p>
+    </div>
+    <div class="pj"></div>
+    <br />
+    <details style="text-align: center">
+      <summary>All GitHub projects</summary>
+      <div class="projects"></div>
+    </details>
+    <script>
+      MKP(".projects", ["Spelis"]);
+      ManualGitHub(
+        [
+          "Spelis/LunaBot",
+          "Spelis/safe",
+          "Spelis/portfolio",
+          "Spelis/ats2",
+          "Spelis/skolmaten",
+        ],
+        ".pj",
+      );
+    </script>
+  </body>
 </html>
