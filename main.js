@@ -123,9 +123,17 @@ window.addEventListener('DOMContentLoaded',function(){
   const ytbtn = document.createElement('a')
   ytbtn.textContent = 'youtube'
   ytbtn.href = 'https://www.youtube.com/@Spelis'
+  const smbtn = document.createElement('a')
+  smbtn.textContent = 'skolmaten'
+  smbtn.href = '/skolmaten/'
+  const dbtn = document.createElement('a')
+  dbtn.textContent = 'donate'
+  dbtn.href = 'https://www.paypal.com/donate/?hosted_button_id=39UGGPZVFTLJQ'
   nav.appendChild(home)
+  nav.appendChild(dbtn)
   nav.appendChild(tech)
   nav.appendChild(ytbtn)
+  nav.appendChild(smbtn)
   bar.appendChild(nav)
 
 })
