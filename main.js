@@ -1,4 +1,4 @@
-function createProjectCard(repo, color, delay = 0) {
+function createProjectCard(icon,repo, color, delay = 0) {
   const card = document.createElement("div");
   card.className = "project";
   card.style.borderColor = color;
@@ -7,7 +7,7 @@ function createProjectCard(repo, color, delay = 0) {
   card.onclick = () => window.open(repo.html_url, "_blank");
 
   const title = document.createElement("h3");
-  title.textContent = " " + repo.name;
+  title.textContent = icon + repo.name;
   title.style.color = color;
 
   const meta = document.createElement("small");
@@ -27,8 +27,74 @@ function createProjectCard(repo, color, delay = 0) {
   return card;
 }
 
-async function MKP(parentSelector, exclude = []) {
-  const colors = [
+const localRepos = [
+  {
+    icon: "󰚩 ",
+    name: "LunaBot",
+    html_url: "https://github.com/Spelis/LunaBot",
+    stargazers_count: 2,
+    forks_count: 0,
+    language: "Python",
+    description: "An Open-Source Discord bot with lots of features!"
+  },
+  {
+    icon: "󰔶 ",
+    name: "ats2",
+    html_url: "https://github.com/Spelis/ats2",
+    stargazers_count: 0,
+    forks_count: 0,
+    language: "C++",
+    description: "Simple game where you need to avoid spikes and collect coins."
+  },
+  {
+    icon: "󰉚 ",
+    name: "Skolmaten",
+    html_url: "https://github.com/Spelis/LunaBot",
+    stargazers_count: 1,
+    forks_count: 0,
+    language: "Python & Flask",
+    description: "'The school food' is a simple web app for school food plans. Made for my fellow co-students"
+  },
+  {
+    icon: "󱇧 ",
+    name: "safe",
+    html_url: "https://github.com/Spelis/safe",
+    stargazers_count: 6,
+    forks_count: 0,
+    language: "Python",
+    description: "Gimmicky text editor that feels like a shell!"
+  },
+  {
+	icon: "󰚑 ",
+	  name: "DSMine",
+	  html_url:"https://github.com/spelis/dsmine",
+	  stargazers_count: 0,
+	  forks_count: 0,
+	  language: "C",
+	  description: "Minesweeper for the Nintendo DS!"
+  },
+	{
+	icon: "󰈟 ",
+		name:"nimg",
+		html_url:"https://github.com/Spelis/newImg",
+		stargazers_count:1,
+		forks_count:0,
+		language: "C",
+		description:"Cross-platform way to easily create new images with a wide range of formats"
+	},
+	{
+		icon: " ",
+		name: "rsnote",
+		html_url:"https://github.com/Spelis/rsnote",
+		stargazers_count:0,
+		forks_count:0,
+		language: "Rust",
+		description: "Simple CLI note taking app"
+	}
+];
+
+function loadLocalProjects(parentSelector) {
+    const colors = [
     "green",
     "sapphire",
     "yellow",
@@ -44,56 +110,12 @@ async function MKP(parentSelector, exclude = []) {
     "maroon",
     "sky",
   ];
-
   const parent = document.querySelector(parentSelector);
-  const response = await fetch("https://api.github.com/users/Spelis/repos");
-  const data = await response.json();
-
-  const repos = data.filter((repo) => !exclude.includes(repo.name));
-  repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
-
-  repos.forEach((repo, i) => {
-    const color = getComputedStyle(document.body)
-      .getPropertyValue(`--${colors[i % colors.length]}`)
-      .trim();
-    const card = createProjectCard(repo, color, 100 * i);
+  localRepos.forEach((repo, i) => {
+    const color = getComputedStyle(document.body).getPropertyValue(`--${colors[i % colors.length]}`).trim();
+    const card = createProjectCard(localRepos[i].icon,repo, color, 100 * i);
     parent.appendChild(card);
   });
-}
-
-async function ManualGitHub(repos, parentSelector) {
-  const colors = [
-    "green",
-    "sapphire",
-    "yellow",
-    "rosewater",
-    "flamingo",
-    "pink",
-    "mauve",
-    "red",
-    "lavender",
-    "teal",
-    "peach",
-    "blue",
-    "maroon",
-    "sky",
-  ];
-
-  const parent = document.querySelector(parentSelector);
-
-  for (let i = 0; i < repos.length; i++) {
-    const repoName = repos[i];
-    const color = getComputedStyle(document.body)
-      .getPropertyValue(`--${colors[i % colors.length]}`)
-      .trim();
-
-    const res = await fetch(`https://api.github.com/repos/${repoName}`);
-    if (!res.ok) continue;
-
-    const repo = await res.json();
-    const card = createProjectCard(repo, color, 100 * i);
-    parent.appendChild(card);
-  }
 }
 
 var href = window.location.pathname;
@@ -128,4 +150,28 @@ window.addEventListener("DOMContentLoaded", function () {
   nav.appendChild(ytbtn);
   nav.appendChild(smbtn);
   bar.appendChild(nav);
+});
+
+document.addEventListener("keydown", function (e) {
+  const key = e.key.toLowerCase();
+  const scrollAmount = 50;
+
+  switch (key) {
+    case "j":
+      window.scrollBy(0, scrollAmount);
+      break;
+    case "k":
+      window.scrollBy(0, -scrollAmount);
+      break;
+    case "g":
+      if (e.shiftKey) window.scrollTo(0, document.body.scrollHeight); // G = bottom
+      else if (!window._gPressed) {
+        window._gPressed = true;
+        setTimeout(() => window._gPressed = false, 300); // wait for 'gg'
+      } else {
+        window.scrollTo(0, 0); // gg = top
+        window._gPressed = false;
+      }
+      break;
+  }
 });

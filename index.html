@@ -40,24 +40,42 @@
         Hello there! I'm
         <span class="veryspecial">Spelis</span>.<br /><br />
         I am
-        <span id="ageDisplay" class="veryspecial" title="2010/05/11"></span>
+        <span id="ageDisplay" class="veryspecial"></span>
         <span class="highlight">years old</span> and i live in
         <span class="veryspecial">Northern Sweden</span> <br /><br />
         I enjoy <span class="veryspecial">programming</span> mostly random
         stuff.<br />
         <script>
           function updateAge() {
-            const specificDate = new Date("2010-05-11T22:50:00");
-            const currentDate = new Date();
-            const age = (
-              (currentDate - specificDate) /
-              (1000 * 60 * 60 * 24 * 365.25)
-            ).toFixed(15);
-            document.getElementById("ageDisplay").textContent = age;
-          }
-          updateAge();
-          setInterval(updateAge, 10);
-        </script>
+    const specificDate = new Date("2010-05-11T22:50:00");  // Your birth date
+    const currentDate = new Date();
+
+    // Calculate age in years (with decimals)
+    const age = (
+      (currentDate - specificDate) /
+      (1000 * 60 * 60 * 24 * 365.25)
+    ).toFixed(15);
+
+    // Calculate time remaining until the next birthday
+    let nextBirthday = new Date(specificDate);
+    nextBirthday.setFullYear(currentDate.getFullYear());
+    if (currentDate > nextBirthday) {
+      nextBirthday.setFullYear(currentDate.getFullYear() + 1);
+    }
+
+    const timeDiff = nextBirthday - currentDate;
+    const daysLeft = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
+    // Display age in years
+    document.getElementById("ageDisplay").textContent = `${age}`;
+
+    // Set the title with the days remaining until the next birthday
+    document.getElementById("ageDisplay").title = `${daysLeft} days left`;
+  }
+
+  updateAge();
+  setInterval(updateAge, 10);
+	</script>
         I also like <span class="veryspecial">snakes</span> and you can find
         some pictures of mine
         <a
@@ -74,23 +92,8 @@
       </p>
     </div>
     <div class="pj"></div>
-    <br />
-    <details style="text-align: center">
-      <summary>All GitHub projects</summary>
-      <div class="projects"></div>
-    </details>
     <script>
-      MKP(".projects", ["Spelis"]);
-      ManualGitHub(
-        [
-          "Spelis/LunaBot",
-          "Spelis/safe",
-          "Spelis/portfolio",
-          "Spelis/ats2",
-          "Spelis/skolmaten",
-        ],
-        ".pj",
-      );
+	    loadLocalProjects(".pj");
     </script>
   </body>
 </html>
