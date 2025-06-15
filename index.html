@@ -6,94 +6,80 @@
     <title>spelis/home</title>
     <script src="main.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7562690585426691"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PCBBH893X9"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-PCBBH893X9");
-    </script>
   </head>
   <body>
     <div id="bar"></div>
-
     <div class="about">
-      <p style="font-size: 20px">
+      <p style="font-size: 21px">
         Hello there! I'm
-        <span class="veryspecial">Spelis</span>.<br /><br />
+        <span class="veryspecial">Spelis</span>.<br />
+        <br />
         I am
         <span id="ageDisplay" class="veryspecial"></span>
         <span class="highlight">years old</span> and i live in
-        <span class="veryspecial">Northern Sweden</span> <br /><br />
-        I enjoy <span class="veryspecial">programming</span> mostly random
-        stuff.<br />
+        <span class="veryspecial">Northern Sweden</span> <br />
+        <br />
+        I enjoy <span class="veryspecial">programming</span> in Python, Rust and
+        C++.<br />
         <script>
-          function updateAge() {
-    const specificDate = new Date("2010-05-11T22:50:00");  // Your birth date
-    const currentDate = new Date();
-
-    // Calculate age in years (with decimals)
-    const age = (
-      (currentDate - specificDate) /
-      (1000 * 60 * 60 * 24 * 365.25)
-    ).toFixed(15);
-
-    // Calculate time remaining until the next birthday
-    let nextBirthday = new Date(specificDate);
-    nextBirthday.setFullYear(currentDate.getFullYear());
-    if (currentDate > nextBirthday) {
-      nextBirthday.setFullYear(currentDate.getFullYear() + 1);
-    }
-
-    const timeDiff = nextBirthday - currentDate;
-    const daysLeft = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-
-    // Display age in years
-    document.getElementById("ageDisplay").textContent = `${age}`;
-
-    // Set the title with the days remaining until the next birthday
-    document.getElementById("ageDisplay").title = `${daysLeft} days left`;
-  }
-
-  updateAge();
-  setInterval(updateAge, 10);
-	</script>
+          updateAge();
+          setInterval(updateAge, 10);
+        </script>
         I also like <span class="veryspecial">snakes</span> and you can find
         some pictures of mine
         <a
           href="https://photos.google.com/share/AF1QipMp7DhMSanHd-ZjQ76Pb9VyRobfxO1jnor_OUiP0TtzwEVuTfw-le_VQYuF4llFVw?key=Y3hXNUpTZ3B5TnNDcHVwOXhDQ3dsU3R5d0oyM1lR"
           >here</a
         >
-        <br /><br />
-
-        If you want to <span class="highlight">contact me</span> you can do so
-        on <a href="https://discord.com/users/710856373675491381">discord</a
-        ><br /><br />
-
-        Below you can find some stuff i've made in the past.
+        <br />
+        Projects:
+        <span style="color: var(--overlay2); font-size: 16px">(scroll)</span>
+        <br />
       </p>
+      <div class="pj">
+        <script>
+          loadLocalProjects(".pj");
+        </script>
+      </div>
+      <div class="buttons">
+        <a href="https://neovim.io"><img src="buttons/neovim.gif" /></a>
+        <a href="https://www.vim.org"><img src="buttons/vim.gif" /></a>
+        <a href="https://catppuccin.com"><img src="buttons/ctp.webp" /></a>
+        <span><img src="buttons/microsoft_stop.gif" /></span>
+        <span><img src="buttons/miku.gif" /></span>
+        <span><img src="buttons/nocookie.gif" /></span>
+        <span><img src="buttons/bestview.gif" /></span>
+        <a href="https://half-life.com"><img src="buttons/hl.gif" /></a>
+        <a href="https://raspberrypi.com"><img src="buttons/rpi.gif" /></a>
+        <a href="https://python.org"><img src="buttons/python.png" /></a>
+        <a href="https://www.idsoftware.com/en"
+          ><img src="buttons/doom.png"
+        /></a>
+        <a href="https://www.idsoftware.com/en"
+          ><img src="buttons/quake.gif"
+        /></a>
+        <a href="https://ublockorigin.com"><img src="buttons/ublock.png" /></a>
+        <a href="https://archlinux.org/"><img src="buttons/archlinux.gif" /></a>
+        <a href="https://kernel.org"><img src="buttons/linux.gif" /></a>
+        <a href="https://rust-lang.org"><img src="buttons/rust.png" /></a>
+        <a href="https://daudix.one"
+          ><img src="https://daudix.one/home/badges/daudix.gif"
+        /></a>
+      </div>
+      <center>
+        <!-- i tried -->
+        <a
+          href="https://ctp-webr.ing/spelis/previous"
+          style="text-decoration: none; line-height: 33px"
+          ></a
+        >
+        <a href="https://ctp-webr.ing/"><img src="buttons/ctpweb.gif" /></a>
+        <a
+          href="https://ctp-webr.ing/spelis/next"
+          style="text-decoration: none; line-height: 33px"
+          ></a
+        >
+      </center>
     </div>
-    <div class="pj"></div>
-    <script>
-	    loadLocalProjects(".pj");
-    </script>
   </body>
 </html>

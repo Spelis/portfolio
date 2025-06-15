@@ -33,6 +33,29 @@
     --crust: #11111b;
 }
 
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--base);
+  border-radius: 9999px;
+}
+
+#bar ::-webkit-scrollbar-track {
+  background: var(--mantle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--subtext1);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mauve);
+}
+
 body {
     font-family: "Iosevka Pride";
     background-color: var(--base);
@@ -47,15 +70,17 @@ a {
     color: var(--blue)
 }
 
-.projects, .pj {
-    display: flex;
-    flex-direction: row;
+.pj {
+    display: block;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px;
     margin:auto auto;
-    text-align: left;
+    max-width: 1000px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    border-radius: 25px;
+    width: 100%;
 }
 
 .highlight {
@@ -82,7 +107,7 @@ a {
 
 
 .project {
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   justify-content: space-between;
   gap: 0.5em;
@@ -152,7 +177,6 @@ a {
 }
 .nav a.sel {
     color: var(--lavender);
-    text-decoration: underline;
 }
 
 #bar {
@@ -181,7 +205,19 @@ a {
     flex: 1;
     flex-direction: column;
     align-self: center;
-    align-items: center;
+    align-items: left;
     padding:10px 20px;
     max-width: 1000px;
+    width: 100%;
+}
+
+div.buttons {
+    display:flex;
+    flex-direction: row;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    max-width: 1000px
+}
+div.buttons a:hover {
+    filter: brightness(70%) !important;
 }
