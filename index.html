@@ -6,62 +6,115 @@
     <title>spelis/home</title>
     <script src="main.js"></script>
     <link rel="stylesheet" href="style.css" />
+	  <meta property="og:title" content="Spelis' Portfolio" />
+	    <meta property="og:description" content="My personal website :P" />
+		  <meta property="og:url" content="https://spelis.projnull.eu" />
+		    <meta property="og:image" content="https://spelis.projnull.eu/noodle.png" />
   </head>
+  <script>
+    const applyTheme = () => {
+      const theme = localStorage.getItem("theme") || "dark";
+      document.body.classList.toggle("light", theme === "light");
+    };
+
+    const toggleTheme = () => {
+      const isLight = document.body.classList.toggle("light");
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    };
+
+    window.addEventListener("DOMContentLoaded", applyTheme);
+  </script>
   <body>
-    <div id="bar"></div>
+    <script src="oneko.js">
+      oneko()
+    </script>
+    <div id="bar">
+      <a
+        href="javascript:void(0);"
+        class="themetoggle"
+        onclick="toggleTheme()"
+        style="float: right; text-decoration: none"
+        >🌓</a
+      >
+    </div>
     <div class="about">
       <p style="font-size: 21px">
         Hello there! I'm
         <span class="veryspecial">Spelis</span>.<br />
         <br />
         I am
-        <span id="ageDisplay" class="veryspecial"></span>
-        <span class="highlight">years old</span> and i live in
-        <span class="veryspecial">Northern Sweden</span> <br />
+        <span class="highlight">
+          <span id="ageDisplay"></span>
+          years old</span
+        >
+        and I live in <span class="highlight">Northern Sweden</span> <br />
         <br />
-        I enjoy <span class="veryspecial">programming</span> in Python, Rust and
+        I <i>enjoy</i> <span class="highlight">programming</span> in Python, Rust and
         C++.<br />
         <script>
           updateAge();
           setInterval(updateAge, 10);
         </script>
-        I also like <span class="veryspecial">snakes</span> and you can find
-        some pictures of mine
+        Also, I like <span class="highlight">snakes</span>. Some
+        pictures of my ball python
         <a
           href="https://photos.google.com/share/AF1QipMp7DhMSanHd-ZjQ76Pb9VyRobfxO1jnor_OUiP0TtzwEVuTfw-le_VQYuF4llFVw?key=Y3hXNUpTZ3B5TnNDcHVwOXhDQ3dsU3R5d0oyM1lR"
           >here</a
         >
         <br />
-        Projects:
-        <span style="color: var(--overlay2); font-size: 16px">(scroll)</span>
         <br />
+        Oh, yeah. You can contact me
+        <a href="mailto:spelis.loves.rust@gmail.com">here</a>
+	<br />
+	<br />
+	<img src="https://spelis.projnull.eu/mathchallenge.png" />
+        <br />
+        <br />
+        <b>Website stuff:</b><br />
+        <span style="color: var(--mauve)">~</span> source:
+        <a href="https://github.com/spelis/portfolio">github</a>
+        <br />
+        <span style="color: var(--blue)">~</span> cursor cat:
+        <a href="https://github.com/adryd325/oneko.js">oneko.js</a>
+        <br />
+        <span style="color: var(--red)">~</span> color:
+        <a href="https://catppuccin.com">catppuccin</a>
+        <br />
+        <br />
+        Projects:
       </p>
-      <div class="pj">
-        <script>
-          loadLocalProjects(".pj");
-        </script>
-      </div>
+      <div class="pj"></div>
+      <script async>
+        loadLocalProjects(".pj");
+        <!-- setTimeout(startLoopScroll, 5000); -->
+        startLoopScroll();
+      </script>
       <div class="buttons">
-        <a href="https://neovim.io"><img src="buttons/neovim.gif" /></a>
-        <a href="https://www.vim.org"><img src="buttons/vim.gif" /></a>
-        <a href="https://catppuccin.com"><img src="buttons/ctp.webp" /></a>
-        <span><img src="buttons/microsoft_stop.gif" /></span>
-        <span><img src="buttons/miku.gif" /></span>
-        <span><img src="buttons/nocookie.gif" /></span>
-        <span><img src="buttons/bestview.gif" /></span>
-        <a href="https://half-life.com"><img src="buttons/hl.gif" /></a>
-        <a href="https://raspberrypi.com"><img src="buttons/rpi.gif" /></a>
-        <a href="https://python.org"><img src="buttons/python.png" /></a>
+        <a href="https://spelis.r.mrharryw.dev"
+          ><img src="/buttons/spelis88x31.gif"
+        /></a>
+	<a href="https://zeffo.me"><img src="https://zeffo.me/buttons/zeffo.gif" /></a>
+        <a href="https://neovim.io"><img src="/buttons/neovim.gif" /></a>
+        <a href="https://www.vim.org"><img src="/buttons/vim.gif" /></a>
+        <a href="https://catppuccin.com"><img src="/buttons/ctp.webp" /></a>
+        <a href="https://counter-strike.net"><img src="/buttons/cs.gif" /></a>
+        <span><img src="/buttons/microsoft_stop.gif" /></span>
+        <span><img src="/buttons/miku.gif" /></span>
+        <span><img src="/buttons/nocookie.gif" /></span>
+        <span><img src="/buttons/bestview.gif" /></span>
+        <a href="https://half-life.com"><img src="/buttons/hl.gif" /></a>
+        <a href="https://raspberrypi.com"><img src="/buttons/rpi.gif" /></a>
+        <a href="https://python.org"><img src="/buttons/python.png" /></a>
         <a href="https://www.idsoftware.com/en"
-          ><img src="buttons/doom.png"
+          ><img src="/buttons/doom.png"
         /></a>
         <a href="https://www.idsoftware.com/en"
-          ><img src="buttons/quake.gif"
+          ><img src="/buttons/quake.gif"
         /></a>
-        <a href="https://ublockorigin.com"><img src="buttons/ublock.png" /></a>
-        <a href="https://archlinux.org/"><img src="buttons/archlinux.gif" /></a>
-        <a href="https://kernel.org"><img src="buttons/linux.gif" /></a>
-        <a href="https://rust-lang.org"><img src="buttons/rust.png" /></a>
+        <a href="https://ublockorigin.com"><img src="/buttons/ublock.png" /></a>
+        <a href="https://archlinux.org/"><img src="/buttons/archlinux.gif" /></a>
+        <a href="https://kernel.org"><img src="/buttons/linux.gif" /></a>
+        <a href="https://rust-lang.org"><img src="/buttons/rust.png" /></a>
         <a href="https://daudix.one"
           ><img src="https://daudix.one/home/badges/daudix.gif"
         /></a>

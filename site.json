@@ -1,0 +1,7 @@
+{
+    "$schema": "http://net.projnull.eu/schemas/network.json",
+    "name":"Elis Eriksson",
+    "description": "Spelis' Portfolio",
+    "category": ["Programming"],
+    "subsites": []
+}
